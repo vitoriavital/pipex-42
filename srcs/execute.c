@@ -6,13 +6,11 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:42:16 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 13:18:59 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:07:50 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-
-extern char	**environ;
 
 int static	build_cmd_path(char *single_cmd, int result)
 {
@@ -67,19 +65,17 @@ int	check_cmd(char *cmd)
 int	execute_command(int file_fd, char *cmd)
 {
 	char	*argv[4];
-	char	**envp;
 
 	argv[0] = "/bin/sh";
 	argv[1] = "-c";
 	argv[2] = cmd;
 	argv[3] = NULL;
-	envp = environ;
 	if (dup2(file_fd, STDIN_FILENO) == -1)
 	{
 		perror("dup2");
 		return (-1);
 	}
-	if (execve("/bin/sh", argv, envp) == -1)
+	if (execve("/bin/sh", argv, __environ) == -1)
 	{
 		perror("execve");
 		return (-1);

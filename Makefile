@@ -6,7 +6,7 @@ NC=\033[0m # No Color
 # Target and Compiler Settings
 NAME        := pipex
 CC          := cc
-CFLAGS      := -Wextra -Wall -Werror -g
+CFLAGS      := -Wextra -Wall -Werror
 
 # Source Files
 SRCS        := srcs/main.c srcs/evaluate.c srcs/utils.c srcs/execute.c srcs/errors.c srcs/validation.c
@@ -47,7 +47,7 @@ $(OBJS_PATH_BONUS):
 
 $(LIBFT):
 	@$(MAKE) -sC $(LIBFT_PATH)
-	@echo "${YELLOW}LIBFT Compiled.${NC}"
+	@echo "${YELLOW}Libft Compiled.${NC}"
 
 clean:
 	@rm -rf $(OBJS_PATH) $(OBJS_PATH_BONUS)

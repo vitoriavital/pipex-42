@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:12:07 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 15:28:51 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:55:12 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ static void	child_process_middle(int *pipe_fd, char *cmd, int input_fd)
 		exit(status);
 	}
 	else
-	{
 		exit(status);
-	}
 }
 
 int	middle_process(int input_fd, char *cmd)
@@ -45,9 +43,7 @@ int	middle_process(int input_fd, char *cmd)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	else if (pid == 0)
-	{
 		child_process_middle(pipe_fd, cmd, input_fd);
-	}
 	else
 	{
 		close(pipe_fd[1]);

@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:52:06 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 12:57:35 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:50:27 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	evaluate(t_data data)
 	return (status);
 }
 
-void	initialize(char **argv, t_data *data)
+static void	initialize(char **argv, t_data *data)
 {
 	data->cmd1 = argv[2];
 	data->cmd2 = argv[3];

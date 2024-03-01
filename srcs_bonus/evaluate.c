@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:52:58 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 18:40:39 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:56:57 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ int	start_process(char *file, char *cmd)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	else if (pid == 0)
-	{
 		child_process_start(pipe_fd, cmd, file);
-	}
 	else
 	{
 		close(pipe_fd[1]);
@@ -92,9 +90,7 @@ int	end_process(int input_fd, char *cmd, char *output_file)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	else if (pid == 0)
-	{
 		child_process_end(input_fd, cmd, output_file, pipe_fd);
-	}
 	else
 	{
 		close(pipe_fd[1]);

@@ -6,21 +6,19 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:52:58 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 13:49:23 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:55:54 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-int	wait_process(pid_t pid)
+static int	wait_process(pid_t pid)
 {
 	int	status;
 
 	waitpid(pid, &status, 0);
 	if (WIFEXITED(status))
-	{
 		return (WEXITSTATUS(status));
-	}
 	else
 		return (-1);
 	return (0);
@@ -63,9 +61,7 @@ int	start_process(char *file, char *cmd)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	else if (pid == 0)
-	{
 		child_process_start(pipe_fd, cmd, file);
-	}
 	else
 	{
 		close(pipe_fd[1]);
@@ -106,9 +102,7 @@ int	end_process(int input_fd, char *cmd, char *output_file)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	else if (pid == 0)
-	{
 		child_process_end(input_fd, cmd, output_file, pipe_fd);
-	}
 	else
 	{
 		close(pipe_fd[1]);

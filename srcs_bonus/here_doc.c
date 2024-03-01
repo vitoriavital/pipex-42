@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:58:42 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 18:48:48 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:54:36 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ static int	start_process_heredoc(int fd_heredoc, char *cmd)
 	if (pid == -1)
 		exit(EXIT_FAILURE);
 	else if (pid == 0)
-	{
 		child_process_start(pipe_fd, cmd, "/tmp/here_doc");
-	}
 	else
 	{
 		close(pipe_fd[1]);

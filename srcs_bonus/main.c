@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:52:06 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 17:23:54 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:54:24 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ static int	evaluate(t_data data, int n)
 	i = 0;
 	input = start_process(data.file1, (data.cmds)[i++]);
 	while ((i + 1) < (n - 3))
-	{
 		input = middle_process(input, (data.cmds)[i++]);
-	}
 	status = end_process(input, (data.cmds)[i], data.file2);
 	return (status);
 }

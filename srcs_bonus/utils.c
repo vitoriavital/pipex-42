@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:59:46 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 16:49:04 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:54:11 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ int	wait_process(pid_t pid)
 
 	waitpid(pid, &status, 0);
 	if (WIFEXITED(status))
-	{
 		return (WEXITSTATUS(status));
-	}
 	else
 		return (-1);
 	return (0);
