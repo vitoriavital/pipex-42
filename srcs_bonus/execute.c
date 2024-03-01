@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:42:16 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 19:30:19 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:39:25 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	execute_command(int file_fd, char *cmd)
 	argv[2] = cmd;
 	argv[3] = NULL;
 	envp = environ;
-	if (dup2(file_fd454, STDIN_FILENO) == -1)
+	if (dup2(file_fd, STDIN_FILENO) == -1)
 	{
 		perror("dup2");
 		return (-1);
