@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:52:58 by mavitori          #+#    #+#             */
-/*   Updated: 2024/03/01 10:55:54 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:47:47 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ static void	child_process_start(int *pipe_fd, char *cmd, char *file)
 	int	status;
 
 	close(pipe_fd[0]);
+	file_fd = open_file(file);
+	if (file_fd == -1)
+	{
+		close(pipe_fd[1]);
+		exit(EXIT_FAILURE);
+	}
 	if (validate_input(pipe_fd) == -1)
 		exit(EXIT_FAILURE);
 	close(pipe_fd[1]);
-	file_fd = open_file(file);
-	if (file_fd == -1)
-		exit(EXIT_FAILURE);
 	status = check_cmd(cmd);
 	if (status == 0)
 	{
@@ -110,6 +113,7 @@ int	end_process(int input_fd, char *cmd, char *output_file)
 		if (status != 0)
 			return (status);
 		close(pipe_fd[0]);
+		close(input_fd);
 	}
 	return (status);
 }
