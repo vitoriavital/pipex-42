@@ -6,60 +6,62 @@
 </p>
 
 ## Introduction
-Fract-ol is a project aimed at creating graphically beautiful fractals using computer graphics techniques. This project offers an opportunity to explore the mlx42 library, utilize mathematical concepts such as complex numbers, delve into optimization in computer graphics, and practice event handling. 
+Pipex is a project aimed at simulating the functionality of pipes in the Bash shell. The program reads from a file, processes the data through a series of commands, and writes the output to another file. Here are the instructions on how to compile and use the Pipex program, including both the main and bonus parts.
 
-MLX42 is a performant, easy to use, cross-platform windowing library to create graphical applications without having to work directly with the native Windowing Framework of the given operating system.
+## Compilation
+o compile the Pipex program, simply run make. This will generate the executable file pipex for the main part and pipex_bonus for the bonus part.
+
+## Usage (Main Part)
+It is built to behave exactly the same as the shell command bellow:
 ```bash
-https://github.com/codam-coding-college/MLX42
+< input.txt cat | grep a output.txt
 ```
 
-## Features
-
-Fract-ol includes the following features:
-
-- **Mandelbrot Set**: The classic Mandelbrot set is generated.
-- **Julia Set**: Allows the user to explore the Julia set by specifying real and imaginary numbers.
-- **Burning Ship Fractal**: The burning ship fractal is generated.
-- **Interactive Zoom**: Zoom in and out using the scroll wheel, following the mouse position.
-- **Continuous Zoom**: Hold down the mouse button to continuously zoom in or out.
-- **Color Change**: Press the Enter key to change the color palette of the fractal.
-- **Exit**: Press the Esc key to exit the program.
-
-## How to Use
-
-To run Fract-ol, follow these steps:
-
-1. Clone the repository:
+To use the Pipex program for the main part, follow the syntax:
 ```bash
-git clone https://github.com/vitoriavital/fractal-42.git fract-ol
-```
-3. Navigate to the project directory: `cd fract-ol`
-4. Compile the program: `make` or `make bonus`
-5. Run the executable: `./fractol [fractal_type]`
-   - Replace `[fractal_type]` with `mandelbrot`, `julia`, or `burning` to generate the respective fractal.
-```bash
-./fractol mandelbrot
-```
-```bash
-./fractol julia -0.7 0.27015 
-```
-```bash
-./fractol burning
+./pipex input.txt "cmd1" "cmd2" output.txt
 ```
 
-## Controls
-
-- **Zoom In**: Right-click or Scroll-In
-- **Zoom Out**: Left-click or Scroll-Out
-- **Continuous Zoom**: Hold down the mouse button while zooming.
-- **Change Color Palette**: Press Enter
-- **Exit Program**: Press Esc
-
-## Dependencies
-
-Fract-ol relies on the following dependencies:
-
-- **Codam mlx42 Library**: The internal mlx42 library is used for graphics rendering and event handling. There are instructions to Download and Build MLX42, as well as installing its dependencies.
+This command reads the contents of input.txt, processes it through cmd1 and cmd2, and writes the output to output.txt. For example:
 ```bash
-https://github.com/codam-coding-college/MLX42
+./pipex input.txt "cat" "grep a" output.txt
 ```
+
+## Usage (Bonus Part)
+It is built to behave exactly the same as the shell command bellow:
+```bash
+< input.txt tr -d '!' | grep -v '!' | sed 's/Hello/Salut/g' | grep 'Salut' | wc -l > output.txt
+```
+
+To use the Pipex program for the bonus part, follow the syntax:
+```bash
+make bonus
+```
+
+```bash
+./pipex_bonus input.txt "cmd1" "cmd2" ... output.txt
+```
+This command reads the contents of `input.txt`, processes it through multiple commands, and writes the output to `output.txt`. For example:
+```bash
+./pipex_bonus input.txt "tr -d '!'" "grep -v '!'" "sed 's/Hello/Salut/g'" "grep 'Salut'" "wc -l" output.txt
+```
+
+## Usage (Bonus Part with Here Doc):
+It is built to behave exactly the same as the shell command bellow:
+```bash
+cmd << LIMITER | cmd1 >> file
+```
+
+To use the Pipex program for the bonus part with here doc functionality, follow the syntax:
+```bash
+./pipex_bonus here_doc LIMITER "cmd1" "cmd2" output.txt
+```
+This command takes input from a here doc delimited by `LIMITER`, processes it through 2 commands, and appends the output to `output.txt`. For example:
+```bash
+./pipex_bonus here_doc "EOF" "cat" "grep a" output.txt
+```
+
+
+**Note:** Ensure that you replace `LIMITER` with your desired delimiter for the here doc, and use a unique one that does not appear in your input data. Also, make sure to enclose the commands in double quotes ("") and separate them by spaces.
+
+
