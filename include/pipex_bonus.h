@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 10:13:04 by mavitori          #+#    #+#             */
-/*   Updated: 2024/03/01 10:57:07 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:32:59 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ typedef struct s_data
 }			t_data;
 
 int			execute_command(int file_fd, char *cmd);
-int			open_file(char *file);
+int			open_file(char *file, int fd);
 int			start_process(char *file, char *cmd);
 int			end_process(int input_fd, char *cmd, char *output_file);
 int			ft_errors(char *message, char *cmd);
 int			check_cmd(char *cmd);
 char		*split_cmd(char *str);
-int			validate_output(char *output_file);
+int			validate_output(char *output_file, int fd);
 int			validate_input(int *pipe_fd);
 int			validate_pipe_fork(int fd[2]);
 int			wait_process(pid_t pid);

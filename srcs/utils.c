@@ -6,13 +6,13 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:59:46 by mavitori          #+#    #+#             */
-/*   Updated: 2024/02/29 16:49:59 by mavitori         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:28:44 by mavitori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-int	open_file(char *file)
+int	open_file(char *file, int fd)
 {
 	int	file_fd;
 
@@ -20,6 +20,7 @@ int	open_file(char *file)
 	if (file_fd == -1)
 	{
 		ft_error_open();
+		close(fd);
 		return (-1);
 	}
 	return (file_fd);
