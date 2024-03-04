@@ -60,7 +60,7 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_PATH) fclean
 	@echo "${YELLOW}Cleaning executables.${NC}"
 
-bonus: $(OBJS_PATH_BONUS) $(OBJS_BONUS)
+bonus: $(OBJS_PATH_BONUS) $(OBJS_BONUS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS_BONUS) $(LINCLUDES) -o $(NAME)_bonus
 	@echo "${GREEN}Compilation bonus completed.${NC}"
 
